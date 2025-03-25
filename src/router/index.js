@@ -3,12 +3,12 @@ import { createRouter, createWebHistory } from "vue-router"; // cài vue-router:
 const routes = [
     {
         path : '/',
-        component: ()=>import('../layout/wrapper/index.vue')
+        component: ()=>import('../components/TrangChu/index.vue')
     },
     {
-        path : '/listgame',
+        path: '/game/:id',
         component: ()=>import('../components/Game/index.vue')
-    },
+    }
 ]
 
 const router = createRouter({

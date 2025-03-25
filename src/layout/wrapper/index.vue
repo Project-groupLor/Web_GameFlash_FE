@@ -1,120 +1,22 @@
 <template>
+  <Header></Header>
+  <TopGames></TopGames>
   <div class="game-flash-wrapper">
-    <!-- Header Section -->
-    <header class="game-header">
-      <div class="container">
-        <div class="logo-container">
-          <img src="https://cdnb.artstation.com/p/assets/images/images/006/024/065/large/anthony-beyer-anthony-beyer-logo.jpg?1495490840" alt="Game Flash Logo" class="logo">
-          <h1>Game Flash Tuổi Thơ</h1>
-        </div>
-        <nav class="main-nav">
-          <ul>
-            <li><a href="#" class="nav-link active">Trang Chủ</a></li>
-            <li><a href="#" class="nav-link">Thể Loại</a></li>
-            <li><a href="#" class="nav-link">Game Hot</a></li>
-            <li><a href="#" class="nav-link">Game Mới</a></li>
-            <li><a href="#" class="nav-link">Liên Hệ</a></li>
-          </ul>
-        </nav>
-      </div>
-    </header>
-
-    <!-- Main Content Section -->
-    <main class="game-content">
-      <div class="container">
-        <!-- Banner Section -->
-        <section class="banner-section">
-          <div class="banner">
-            <h2>Chơi Game Flash Tuổi Thơ</h2>
-            <p>Khám phá lại những trò chơi flash huyền thoại một thời</p>
-            <button class="play-now-btn">Chơi Ngay</button>
-          </div>
-        </section>
-
-        <!-- Game Categories -->
-        <section class="categories-section">
-          <h2 class="section-title">Thể Loại Game</h2>
-          <div class="category-grid">
-            <div class="category-card">
-              <div class="category-icon">🎮</div>
-              <h3>Hành Động</h3>
-            </div>
-            <div class="category-card">
-              <div class="category-icon">🧩</div>
-              <h3>Giải Đố</h3>
-            </div>
-            <div class="category-card">
-              <div class="category-icon">🏎️</div>
-              <h3>Đua Xe</h3>
-            </div>
-            <div class="category-card">
-              <div class="category-icon">⚽</div>
-              <h3>Thể Thao</h3>
-            </div>
-            <div class="category-card">
-              <div class="category-icon">🧠</div>
-              <h3>Trí Tuệ</h3>
-            </div>
-           
-          </div>
-        </section>
-
-        <!-- Featured Games -->
-        
-
-        <!-- Router View for Dynamic Content -->
-        <section class="dynamic-content">
-          <slot></slot>
-        </section>
-      </div>
-    </main>
-
-    <!-- Footer Section -->
-    <footer class="game-footer">
-      <div class="container">
-        <div class="footer-content">
-          <div class="footer-logo">
-            <img src="https://cdnb.artstation.com/p/assets/images/images/006/024/065/large/anthony-beyer-anthony-beyer-logo.jpg?1495490840" alt="Game Flash Logo" class="logo-small">
-            <h3>Game Flash Tuổi Thơ</h3>
-          </div>
-          <div class="footer-links">
-            <h4>Liên Kết</h4>
-            <ul>
-              <li><a href="#">Trang Chủ</a></li>
-              <li><a href="#">Thể Loại</a></li>
-              <li><a href="#">Game Hot</a></li>
-              <li><a href="#">Game Mới</a></li>
-            </ul>
-          </div>
-          <div class="footer-contact">
-            <h4>Liên Hệ</h4>
-            <p>Email: contact@gameflash.com</p>
-            <p>Điện thoại: 0123-456-789</p>
-            <div class="social-icons">
-              <a href="#" class="social-icon">FB</a>
-              <a href="#" class="social-icon">TW</a>
-              <a href="#" class="social-icon">IG</a>
-            </div>
-          </div>
-        </div>
-        <div class="copyright">
-          <p>&copy; 2023 Game Flash Tuổi Thơ. All rights reserved.</p>
-        </div>
-      </div>
-    </footer>
+    <router-view></router-view>
   </div>
+  <Footer></Footer>
 </template>
 
 <script>
+import Header from '../components/Header.vue'
+import TopGames from '../components/TopGames.vue'
+import Footer from '../components/Footer.vue'
 export default {
   name: 'GameFlashWrapper',
-  data() {
-    return {
-      // Data properties can be added here
-    }
-  },
-  methods: {
-    // Methods can be added here
+  components: {
+    Header,
+    TopGames,
+    Footer
   }
 }
 </script>
@@ -143,12 +45,13 @@ body {
 
 /* Header Styles */
 .game-header {
-  background-color: #1a1a2e;
+  background: linear-gradient(to bottom, #1a1a2e, #16162a);
   padding: 15px 0;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.7);
   position: sticky;
   top: 0;
   z-index: 100;
+  border-bottom: 3px solid #ff6b6b;
 }
 
 .game-header .container {
@@ -163,16 +66,33 @@ body {
 }
 
 .logo {
-  width: 50px;
-  height: 50px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
   margin-right: 15px;
+  border: 2px solid #ff6b6b;
+  box-shadow: 0 0 10px rgba(255, 107, 107, 0.5);
+  transition: all 0.3s ease;
+}
+
+.logo:hover {
+  transform: rotate(10deg);
+  box-shadow: 0 0 15px rgba(255, 107, 107, 0.8);
 }
 
 .logo-container h1 {
-  font-size: 1.8rem;
+  font-size: 2rem;
   color: #ff6b6b;
-  text-shadow: 0 0 5px rgba(255, 107, 107, 0.5);
+  text-shadow: 0 0 8px rgba(255, 107, 107, 0.5), 0 0 15px rgba(255, 107, 107, 0.3);
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.main-nav {
+  background-color: #2a2a3a;
+  border-radius: 30px;
+  padding: 5px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
 }
 
 .main-nav ul {
@@ -181,21 +101,27 @@ body {
 }
 
 .main-nav li {
-  margin-left: 20px;
+  margin: 0 5px;
 }
 
 .nav-link {
   color: #ffffff;
   text-decoration: none;
-  font-weight: 500;
-  padding: 8px 12px;
-  border-radius: 4px;
+  font-weight: 600;
+  padding: 10px 15px;
+  border-radius: 20px;
   transition: all 0.3s ease;
+  display: block;
+  text-align: center;
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
 }
 
 .nav-link:hover, .nav-link.active {
-  background-color: #ff6b6b;
-  color: #1a1a2e;
+  background: linear-gradient(to bottom, #ff6b6b, #ff5252);
+  color: #ffffff;
+  box-shadow: 0 3px 8px rgba(255, 107, 107, 0.4);
+  transform: translateY(-2px);
 }
 
 /* Main Content Styles */
@@ -216,42 +142,107 @@ body {
   border-radius: 10px;
   text-align: center;
   color: #ffffff;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+  border: 3px solid #2a2a3a;
+}
+
+.banner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: linear-gradient(to right, #ff6b6b, #ffdd59, #ff6b6b);
+  animation: rainbow 3s linear infinite;
+}
+
+@keyframes rainbow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 .banner h2 {
-  font-size: 2.5rem;
+  font-size: 2.8rem;
   margin-bottom: 15px;
   color: #ff6b6b;
-  text-shadow: 0 0 10px rgba(255, 107, 107, 0.7);
+  text-shadow: 0 0 10px rgba(255, 107, 107, 0.7), 0 0 20px rgba(255, 107, 107, 0.4);
+  font-weight: 800;
+  letter-spacing: 1px;
+  position: relative;
+  display: inline-block;
+}
+
+.banner h2::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 3px;
+  background-color: #ff6b6b;
+  border-radius: 3px;
 }
 
 .banner p {
-  font-size: 1.2rem;
-  margin-bottom: 25px;
+  font-size: 1.3rem;
+  margin-bottom: 30px;
+  color: #f0f0f0;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .play-now-btn {
-  background-color: #ff6b6b;
+  background: linear-gradient(to bottom, #ff6b6b, #ff5252);
   color: #ffffff;
   border: none;
-  padding: 12px 30px;
-  font-size: 1.1rem;
+  padding: 15px 35px;
+  font-size: 1.2rem;
   border-radius: 30px;
   cursor: pointer;
   transition: all 0.3s ease;
   font-weight: bold;
-  box-shadow: 0 4px 15px rgba(255, 107, 107, 0.5);
+  box-shadow: 0 5px 15px rgba(255, 107, 107, 0.5), 0 0 5px rgba(255, 107, 107, 0.3);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.play-now-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: 0.5s;
+  z-index: -1;
 }
 
 .play-now-btn:hover {
-  background-color: #ff5252;
-  transform: translateY(-3px);
-  box-shadow: 0 6px 20px rgba(255, 107, 107, 0.6);
+  background: linear-gradient(to bottom, #ff5252, #ff3838);
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 8px 25px rgba(255, 107, 107, 0.6), 0 0 10px rgba(255, 107, 107, 0.4);
+}
+
+.play-now-btn:hover::before {
+  left: 100%;
 }
 
 /* Categories Section */
 .categories-section {
   margin-bottom: 40px;
+  background-color: #2a2a3a;
+  border-radius: 10px;
+  padding: 25px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
 .section-title {
@@ -278,31 +269,84 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
   gap: 20px;
+  margin-top: 20px;
 }
 
 .category-card {
-  background-color: #2a2a3a;
-  border-radius: 8px;
+  background: linear-gradient(to bottom, #323248, #2a2a3a);
+  border-radius: 10px;
   padding: 20px;
   text-align: center;
   transition: all 0.3s ease;
   cursor: pointer;
+  border: 2px solid #3a3a5a;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.category-card::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  height: 5px;
+  background: linear-gradient(to right, #ff6b6b, #4a69bd);
+  opacity: 0;
+  transition: all 0.3s ease;
 }
 
 .category-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-  background-color: #323248;
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  border-color: #ff6b6b;
+}
+
+.category-card:hover::before {
+  opacity: 1;
 }
 
 .category-icon {
   font-size: 2.5rem;
   margin-bottom: 15px;
+  background: -webkit-linear-gradient(#ff6b6b, #ffdd59);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+.category-card:hover .category-icon {
+  transform: scale(1.2);
 }
 
 .category-card h3 {
   font-size: 1.1rem;
   color: #ffffff;
+  position: relative;
+  padding-bottom: 8px;
+  transition: all 0.3s ease;
+}
+
+.category-card h3::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background-color: #ff6b6b;
+  transition: all 0.3s ease;
+}
+
+.category-card:hover h3 {
+  color: #ff6b6b;
+}
+
+.category-card:hover h3::after {
+  width: 50px;
 }
 
 /* Featured Games */
@@ -367,6 +411,91 @@ body {
   background-color: #ff5252;
 }
 
+/* Top Games Section */
+.top-games-section {
+  margin-bottom: 40px;
+  background-color: #2a2a3a;
+  border-radius: 10px;
+  padding: 25px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.top-games-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.top-game-item {
+  display: flex;
+  align-items: center;
+  background-color: #323248;
+  border-radius: 8px;
+  padding: 10px 15px;
+  transition: all 0.3s ease;
+}
+
+.top-game-item:hover {
+  transform: translateX(5px);
+  background-color: #3a3a5a;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.rank {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #ff6b6b;
+  width: 40px;
+  text-align: center;
+  text-shadow: 0 0 5px rgba(255, 107, 107, 0.5);
+}
+
+.game-info {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+  margin: 0 15px;
+}
+
+.game-thumb {
+  width: 60px;
+  height: 60px;
+  background-color: #3a3a4a;
+  border-radius: 8px;
+  margin-right: 15px;
+  background-image: linear-gradient(45deg, #ff6b6b 25%, transparent 25%, transparent 50%, #ff6b6b 50%, #ff6b6b 75%, transparent 75%, transparent);
+  background-size: 20px 20px;
+}
+
+.game-details h3 {
+  font-size: 1.1rem;
+  color: #ffffff;
+  margin-bottom: 5px;
+}
+
+.game-stats {
+  display: flex;
+  gap: 15px;
+  font-size: 0.85rem;
+  color: #cccccc;
+}
+
+.play-btn-small {
+  background-color: #ff6b6b;
+  color: #ffffff;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.play-btn-small:hover {
+  background-color: #ff5252;
+  transform: scale(1.05);
+}
+
 /* Dynamic Content Section */
 .dynamic-content {
   margin-top: 40px;
@@ -377,6 +506,8 @@ body {
   background-color: #1a1a2e;
   padding: 40px 0 20px;
   color: #ffffff;
+  border-top: 4px solid #ff6b6b;
+  box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.3);
 }
 
 .footer-content {
@@ -393,39 +524,74 @@ body {
 }
 
 .logo-small {
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   margin-bottom: 10px;
+  border: 2px solid #ff6b6b;
+  box-shadow: 0 0 10px rgba(255, 107, 107, 0.5);
 }
 
 .footer-logo h3 {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   color: #ff6b6b;
+  margin-bottom: 10px;
+  text-shadow: 0 0 5px rgba(255, 107, 107, 0.3);
 }
 
-.footer-links h4, .footer-contact h4 {
+.footer-slogan {
+  color: #cccccc;
+  font-size: 0.9rem;
+  font-style: italic;
+  max-width: 250px;
+  line-height: 1.4;
+}
+
+.footer-links h4, .footer-contact h4, .footer-categories h4 {
   font-size: 1.1rem;
   margin-bottom: 15px;
   color: #ff6b6b;
+  position: relative;
+  padding-bottom: 8px;
 }
 
-.footer-links ul {
+.footer-links h4::after, .footer-contact h4::after, .footer-categories h4::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 40px;
+  height: 2px;
+  background-color: #ff6b6b;
+}
+
+.footer-links ul, .footer-categories ul {
   list-style: none;
 }
 
-.footer-links li {
+.footer-links li, .footer-categories li {
   margin-bottom: 10px;
+  position: relative;
+  padding-left: 15px;
 }
 
-.footer-links a, .footer-contact a {
+.footer-links li::before, .footer-categories li::before {
+  content: '➤';
+  position: absolute;
+  left: 0;
+  color: #ff6b6b;
+  font-size: 0.8rem;
+}
+
+.footer-links a, .footer-contact a, .footer-categories a, .footer-nav a {
   color: #cccccc;
   text-decoration: none;
-  transition: color 0.3s ease;
+  transition: all 0.3s ease;
 }
 
-.footer-links a:hover, .footer-contact a:hover {
+.footer-links a:hover, .footer-contact a:hover, .footer-categories a:hover, .footer-nav a:hover {
   color: #ff6b6b;
+  padding-left: 5px;
 }
 
 .footer-contact p {
@@ -448,17 +614,46 @@ body {
   text-align: center;
   line-height: 35px;
   transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 .social-icon:hover {
   background-color: #ff6b6b;
   color: #1a1a2e;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 10px rgba(255, 107, 107, 0.4);
+}
+
+.footer-bottom {
+  border-top: 1px solid #2a2a3a;
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.footer-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 10px;
+}
+
+.footer-nav a {
+  position: relative;
+}
+
+.footer-nav a:not(:last-child)::after {
+  content: '|';
+  position: absolute;
+  right: -12px;
+  color: #444;
 }
 
 .copyright {
   text-align: center;
-  padding-top: 20px;
-  border-top: 1px solid #2a2a3a;
   color: #888888;
   font-size: 0.9rem;
 }
