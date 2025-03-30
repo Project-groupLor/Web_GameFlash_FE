@@ -56,7 +56,7 @@ export default {
     },
     methods: {
         getListGame() {
-            axios.get("http://127.0.0.1:8000/api/getdata").then((res) => {
+            axios.get("https://be.flash-mson.id.vn/api/getdata").then((res) => {
                 this.listGame = res.data.data;
             });
         },
