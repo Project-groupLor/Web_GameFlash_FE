@@ -72,7 +72,7 @@ export default {
     async loadGame() {
       try {
         const gameId = this.$route.params.id;
-        const res = await axios.get(`https://be.flash-mson.id.vn/api/getdata/${gameId}`);
+        const res = await axios.get(`https://be.game-flash-mson.io.vn/api/getdata/${gameId}`);
         if (res.data) {
           this.game = res.data.data;
           this.loadSuggestedGames();
@@ -88,7 +88,7 @@ export default {
 
     async loadSuggestedGames() {
       try {
-        const res = await axios.get('https://be.flash-mson.id.vn/api/getdata');
+        const res = await axios.get('https://be.game-flash-mson.io.vn/api/getdata');
         if (res.data && res.data.data) {
           // Lọc ra các game khác với game hiện tại và chọn ngẫu nhiên 4 game
           const otherGames = res.data.data.filter(g => g.id !== this.game.id);

@@ -3,7 +3,7 @@
     <div class="container">
       <div class="logo-container">
         <img src="https://cdnb.artstation.com/p/assets/images/images/006/024/065/large/anthony-beyer-anthony-beyer-logo.jpg?1495490840" alt="Game Flash Logo" class="logo">
-        <h1>Game Flash Tuổi Thơ</h1>
+        <h1 class="header-title">Game Flash Tuổi Thơ</h1>
       </div>
       <nav class="main-nav">
         <ul>
@@ -53,14 +53,15 @@ export default {
 
 <style scoped>
 .game-header {
-  background-color: #1f1f2f;
-  padding: 15px 0;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(90deg, #74ebd5 0%, #ACB6E5 100%);
+  padding: 18px 0 14px 0;
+  box-shadow: 0 4px 24px 0 rgba(44, 62, 80, 0.13), 0 1.5px 8px 0 rgba(44, 62, 80, 0.13);
   position: fixed;
   width: 100%;
   top: 0;
   z-index: 1000;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s cubic-bezier(.4,2,.6,1);
+  backdrop-filter: blur(6px);
 }
 
 .header-hidden {
